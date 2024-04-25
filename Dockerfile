@@ -1,4 +1,8 @@
-FROM blang/latex:ubuntu
+FROM ubuntu:xenial
+Run apt-get update -y
+Run apt-get install -y texlive-base
+Run apt-get install -y ko.tex
 
-RUN tlmgr init-usertree || true
-# RUN tlmgr install ... || true
+ENV HOME /data
+WORKDIR /data
+VOLUME ["/data"]
